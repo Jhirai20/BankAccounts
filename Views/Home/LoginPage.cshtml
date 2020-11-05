@@ -1,0 +1,22 @@
+@model LoginUser
+<h1>Bank Of The Dojo</h1>
+<h2>Login</h2>
+
+<nav>
+    <a href= "/">Register Here</a>
+</nav>
+
+<form asp-action="Login" asp-controller="Home" method="post">
+    <br>
+    <span asp-validation-for="Email"></span>
+    <label asp-for="Email"></label>
+    <input asp-for="Email">
+    <br>
+    <span asp-validation-for="Password"></span>
+    <label asp-for="Password"></label>
+    <input asp-for="Password">
+
+    <br>
+    <button>Submit</button>
+
+</form>

@@ -1,0 +1,28 @@
+@model Transaction
+<h1>Bank Of The Dojo</h1>
+<h2>@ViewBag.User.FirstName, Welcome to Your Account</h2>
+
+
+
+<nav>
+    <a href= "/">Logout</a>
+</nav>
+
+<h3>Balance: @ViewBag.Total</h3>
+
+<form asp-action="Transactions" asp-controller="Home" method="post">
+    <br>
+    <input type="hidden" asp-for="UserId" value="@ViewBag.User.UserId">
+    <span asp-validation-for="Amount"></span>
+    <label asp-for="Amount"></label>
+    <input asp-for="Amount">
+    <button>Submit</button>
+</form>
+
+<h2>Account Activity</h2>
+@foreach(var t in ViewBag.Transaction)
+{
+    <p>Amount:@String.Format("{0:0.00}",@t.Amount)</p>
+    <p>Date and Time: @t.CreatedAt</p>
+    <br>
+}
